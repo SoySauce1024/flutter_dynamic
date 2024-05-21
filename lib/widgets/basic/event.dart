@@ -32,17 +32,17 @@ mixin YZDynamicWidgetEventServer implements YZDynamicWidgetEvent {
         switch (m.eventType) {
           case YZDynamicWidgetEventType.onClick:
             _onClick = (){
-              triggerEvent(YZDynamicWidgetEventType.onClick);
+              triggerEvent(YZDynamicWidgetEventType.onClick,m.name);
             };
             break;            
           case YZDynamicWidgetEventType.onLongPress:
             _onLongPress = (){
-              triggerEvent(YZDynamicWidgetEventType.onLongPress);
+              triggerEvent(YZDynamicWidgetEventType.onLongPress,m.name);
             };
             break;          
           case YZDynamicWidgetEventType.onDoubleTap:
             _onDoubleTap = (){
-              triggerEvent(YZDynamicWidgetEventType.onDoubleTap);
+              triggerEvent(YZDynamicWidgetEventType.onDoubleTap,m.name);
             };
             break;          
           default:

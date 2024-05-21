@@ -43,8 +43,7 @@ class UTBaseState<T extends StatefulWidget> extends State<T> {
       children: [
         Container(              
           margin: EdgeInsets.only(bottom: 10),
-          child: FlatButton(
-            color: Colors.black12,
+          child: ElevatedButton(
             child: Text(kw, style: TextStyle(fontSize: 14, color: Colors.lightBlue)),
             onPressed: (){
               YZDynamic.handle(

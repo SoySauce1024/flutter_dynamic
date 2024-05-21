@@ -146,6 +146,7 @@ var container = {
     "margin": "[10, 0, 10, 0]",
     "height": "50",
     "child": {
+      "xKey":"hhh",
       "type": "sysWidget",
       "widgetName": "Text",
       "props": {
@@ -156,7 +157,23 @@ var container = {
         "fontWeight": "bold",
         "lineHeight": "1.2",
         "maxLines": "2"
-      }
+      },
+      "xEvents":[{
+        "name":"ffd",
+        "eventType": "onClick",
+        // "code": '''
+        //   var:<c:containerText>=action:String.+({"value":"Container Text: ","value1":"<w:_TextField>"});
+        //   action:scheme/yzToast?tip=var:<c:containerText>;
+        // '''
+        "actions":[
+          {
+            "actionName":"yzToast",
+            "params":{
+              "tip":"<w:hhh>"
+            }
+          }
+        ]
+      }]
     }
   }
 };
@@ -263,11 +280,14 @@ var forloop = {
     {
       "eventType": "onClick",
       "code": '''
-        var:<c:length>=<w:_TextField>;
+        var:<c:inputValue>=<w:_TextField>;
+        var:<c:length>=action:scheme/String.length?value=<c:inputValue>;
+        action:scheme/Sys.print?value=<c:length>;
         var:<c:result>=100;
-        for (int i = 0, i < var:<c:length>, i+=2) {
+        for (int i = 0; i < var:<c:length>; i+=2) {
           <c:result>=action:scheme/num.+?value=<c:result>&value1=<c:i>;
-          action:scheme/Sys.print?value=<c:i>
+          <c:t>=action:scheme/String.+?value=哈哈哈&value1=<c:i>);
+          action:scheme/Sys.print?value=<c:t>;
         };  
         action:scheme/Sys.print?value=<c:result>
       '''
